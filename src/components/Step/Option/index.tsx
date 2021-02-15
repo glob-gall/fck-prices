@@ -5,7 +5,7 @@ export type OptionProps = {
   img: any
   img_alt?:string
   text: string
-  description:string
+  description?:string
   opt?:string
   active?:boolean
   price:number
