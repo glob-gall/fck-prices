@@ -12,6 +12,7 @@ import woocommerce from '../public/static/svgs/woocommerce.svg'
 import shopify from '../public/static/svgs/shopify.svg'
 import wix from '../public/static/svgs/wix.svg'
 import paint from '../public/static/svgs/paint.svg'
+import { StepProps } from '../components/Step'
 
 const steps = [
   {
@@ -90,7 +91,7 @@ const steps = [
       }
     ]
   }
-]
+] as StepProps[]
 
 function App({ Component, pageProps }: AppProps) {
   return (

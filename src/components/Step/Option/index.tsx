@@ -2,7 +2,7 @@ import useBudget from '../../../hooks/useBudget'
 import * as S from './styles'
 
 export type OptionProps = {
-  img: string
+  img: any
   img_alt?:string
   text: string
   description:string
