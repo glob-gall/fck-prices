@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 type ContainerProps = {
   active ?: boolean
@@ -29,6 +30,14 @@ export const Wrapper = styled.div<ContainerProps>`
       width:10rem;
       height:10rem;
     }
+
+  ${media.lessThan('medium')`
+  padding:0.5rem;
+  img{
+      width:3.4rem;
+      height:3.4rem;
+    }
+  `}
 
   transition:0.5s;
   &:hover{
