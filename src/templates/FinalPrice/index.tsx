@@ -1,3 +1,4 @@
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { useEffect, useState } from "react"
 import { OptionProps } from "../../components/Step/Option"
@@ -7,10 +8,15 @@ import useBudget from "../../hooks/useBudget"
 import * as S from './styles'
 
 function TotalPrice(){
+  const router = useRouter()
   const {totalPrice,steps} = useBudget()
   const [activeOptions,setActiveOptions] = useState<OptionProps[]>([])
   
   useEffect(()=>{
+    if(totalPrice===0){
+      router.push('/')
+      return
+    }
     setActiveOptions([])
 
     steps.forEach(step=>{
