@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <Head>
-      <title>Fcktiming | Orçamento</title>
+      <title>Fcktiming | Faça seu orçamento</title>
     </Head>
     
     <Container>

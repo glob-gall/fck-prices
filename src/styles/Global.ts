@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     background:#f2f2f2;
+    color:#303030;
     font-family:Arial, Helvetica, sans-serif;
   }
   button{

@@ -3,9 +3,11 @@ import Link from 'next/link'
 import { useEffect, useState } from "react"
 import { OptionProps } from "../../components/Step/Option"
 import OptionMiniature from '../../components/OptionMiniature'
+import Logo from '../../public/static/svgs/logo-light.svg'
 
 import useBudget from "../../hooks/useBudget"
 import * as S from './styles'
+import { ArrowLeft } from '@styled-icons/feather'
 
 function TotalPrice(){
   const router = useRouter()
@@ -30,9 +32,17 @@ function TotalPrice(){
     
   return (
     <S.Wrapper>
-      <Link href="/">
-      <S.Link>Voltar</S.Link>
+
+      <Link href="/" passHref>
+      <S.Link>
+        <ArrowLeft size={36}/> 
+        <span>Voltar</span>
+      </S.Link>
       </Link>
+
+      <S.Logo>
+        <img src={Logo} alt="fck timing logo"/>
+      </S.Logo>
       <S.TotalPrice>
         O preço estimado é de <span>R$ {totalPrice}</span>
       </S.TotalPrice>
@@ -40,7 +50,7 @@ function TotalPrice(){
       <S.ConfirmButton>Confirmar Orçamento</S.ConfirmButton>
 
       <S.Options>
-        <S.OptionsTitle>Passos escolhidos:</S.OptionsTitle>
+        <S.OptionsTitle>Escolhas:</S.OptionsTitle>
         {activeOptions.map((opt,index)=>(
           <OptionMiniature 
             key={index} 

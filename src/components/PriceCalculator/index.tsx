@@ -1,12 +1,9 @@
+import {ArrowLeft} from '@styled-icons/feather'
 import * as S from './styles'
 
 import Step from '../Step'
 import useBudget from '../../hooks/useBudget'
 
-
-//calcula o total price
-//mostra a quantidade de steps
-//mostra o step atual
 function PriceCalculator() {
   const {prevStep,totalPrice,activeStep,steps} = useBudget()
 
@@ -17,16 +14,18 @@ function PriceCalculator() {
       <div>
       {
         activeStep>0 &&
-        <S.PrevButton onClick={()=>prevStep()}>{'<-'} Anterior</S.PrevButton>
+        <S.PrevButton onClick={()=>prevStep()}><ArrowLeft size={36}/> <p>Anterior</p></S.PrevButton>
       }
       </div>
-      <S.StepCounter>{`${activeStep+1}/${steps.length}`}</S.StepCounter>
-      <div>
+      <S.StepCounter>
+      <span>{`${activeStep+1}/${steps.length}`}</span>
+      </S.StepCounter>
+      <S.TotalPrice>
       {
         totalPrice>0 &&
-        <S.TotalPrice>{`R$ ${totalPrice},00`}</S.TotalPrice>
+        <span>{`R$ ${totalPrice},00`}</span>
       }
-      </div>
+      </S.TotalPrice>
 
       </S.Header>
       {<Step {...steps[activeStep]}/>}

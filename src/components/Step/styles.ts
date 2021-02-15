@@ -12,5 +12,8 @@ export const Title = styled.h1`
 
 export const OptionsContainer = styled.div`
   display:flex;
+  flex-wrap:wrap;
+  text-align:center;
+  justify-content:center;
   
 `

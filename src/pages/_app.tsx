@@ -2,61 +2,91 @@ import GlobalStyle from '../styles/Global'
 import { AppProps } from 'next/app'
 import { BudgetProvider } from '../hooks/useBudget'
 
+import ecommerce from '../public/static/svgs/ecommerce.svg'
+import normal from '../public/static/svgs/normal.svg'
+import portfolio from '../public/static/svgs/portfolio.svg'
+
+import hands from '../public/static/svgs/hands.svg'
+import wordpress from '../public/static/svgs/wordpress.svg'
+import woocommerce from '../public/static/svgs/woocommerce.svg'
+import shopify from '../public/static/svgs/shopify.svg'
+import wix from '../public/static/svgs/wix.svg'
+import paint from '../public/static/svgs/paint.svg'
+
 const steps = [
   {
-    question:'Step One',
+    question:'Tipo de site',
     options: [
       {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-1-1.png',
-        img_alt:'a cellphone and a computer',
-        text:'Ótima qualidade',
-        opt:'quality',
+        img:ecommerce,
+        img_alt:'um celular, uma moeda e um carrinho de compras',
+        text:'E-commerce',
+        description:'(loja virtual)',
+        opt:'ecommerce',
+        price:2000
+      },
+      {
+        img:normal,
+        img_alt:'um frame de um site simplicifado',
+        text:'Site institucional',
+        description:'(site sobre sua empresa)',
+        opt:'site-institucional',
         price:1000
       },
       {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-1-2.png',
-        img_alt:'uma balança com design e ouro',
-        text:'Boa relação de qualidade e preço',
-        opt:'price-quality',
+        img:portfolio,
+        img_alt:'uma pasta com um documendo para fora',
+        text:'Site pessoal',
+        description:'(portfólio com seu contato)',
+        opt:'site-pessoal',
         price:500
       }
     ]
   },
   {
-    question:'Step Two',
+    question:'Plataforma',
     options:[
       {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-2-3.png',
-        img_alt:'a cellphone and a computer',
-        text:'Option 2',
-        opt:'hamb',
-        price:1000
+        img:hands,
+        img_alt:'aperto de mãos',
+        text:'Escolha para mim',
+        opt:'any',
+        price:1300
       },
       {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-2-4.png',
-        img_alt:'uma balança com design e ouro',
-        text:'Option 3',
-        opt:'price-hamb',
-        price:500
-      }
-    ]
-  },
-  {
-    question:'Wich interface you want?',
-    options:[
-      {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-3-3.png',
-        img_alt:'a cellphone and a computer',
-        text:'Interface mobile',
-        opt:'mobile',
-        price:1000
+        img:wordpress,
+        img_alt:'icone wordpress',
+        text:'Wordpress',
+        opt:'wordpress',
+        price:1375
       },
       {
-        img:'https://www.quantocustaumaplicativo.com/img/app/answer-3-2.png',
-        img_alt:'uma balança com design e ouro',
-        text:'Interface web',
-        opt:'web',
-        price:500
+        img:woocommerce,
+        img_alt:'icone woocomerce',
+        text:'Woocomerce',
+        opt:'woocomerce',
+        price:1321
+      },
+      {
+        img:shopify,
+        img_alt:'icone shopify',
+        text:'Shopify',
+        opt:'shopify',
+        price:1321
+      },
+      {
+        img:wix,
+        img_alt:'icone wix',
+        text:'Wix',
+        opt:'wix',
+        price:545
+      },
+      {
+        img:paint,
+        img_alt:'pincel',
+        text:'Sem web builder!',
+        opt:'no-web-builder',
+        price:790
       }
     ]
   }

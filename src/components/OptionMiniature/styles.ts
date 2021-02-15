@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display:flex;
   align-items:center;
   text-align:center;
+  cursor: pointer;
 
   margin:0.5rem;
   width:20rem;
@@ -11,8 +12,7 @@ export const Wrapper = styled.div`
   font-size:22px;
   padding:1rem;
 
-  border-radius:0.2rem;
-  border:2px solid #00000020;
+  
 
   img{
       max-width:100%;
@@ -24,9 +24,13 @@ export const Wrapper = styled.div`
     }
 
   transition:0.5s;
-  background:#00000010;
+  background:#C7EBFF60;
+  border:2px solid #C7EBFF00;
+  
+  border-radius:0.2rem;
   &:hover{
-    background:#00000040;
+    background:#C7EBFF90;
+    border:2px solid #C7EBFF;
     transform:translateY(-0.5rem);
   }
 `

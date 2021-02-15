@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   display:flex;
@@ -6,22 +7,48 @@ export const Wrapper = styled.div`
 `
 
 export const Link = styled.a`
-  margin:1rem;
-  width:5rem;
-  padding:1rem;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+
+  text-decoration:none;
+  color:#303030;
+  margin-top:1rem;
+  width:10rem;
+  /* padding:1rem; */
   display:block;
   text-align:center;
+  font-size:24px;
+  cursor: pointer;
 
-  
-  &:hover{
-    background:#D36363;
+  ${media.lessThan('medium')`
+  width:5rem;
+    span{
+      display:none;
+    }
+  `}
+`
+
+export const Logo = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1rem;
+  img{
+    width:9rem;
   }
+  ${media.lessThan('medium')`
+    img{
+      width:8rem;
+    }
+  `}
 `
 
 export const TotalPrice = styled.h1`
+
   font-size:52px;
   text-align:center;
-  margin:8rem 0 1rem;
+  margin-bottom: 1rem;
   
   display:flex;
   flex-direction:column;
@@ -29,6 +56,12 @@ export const TotalPrice = styled.h1`
     font-size:82px;
     color:#79D363;
   }
+  ${media.lessThan('medium')`
+    font-size:34px;
+    span{
+      font-size:52px;
+    }
+  `}
 `
 export const ConfirmButton = styled.button`
   margin-bottom:4rem;
@@ -52,6 +85,10 @@ export const Options = styled.div`
   justify-content:center;
   flex-wrap:wrap;
   position:relative;
+  ${media.lessThan('medium')`
+    margin-top:1rem;
+    margin-bottom:1rem;
+  `}
 `
 
 export const OptionsTitle = styled.h2`
@@ -59,4 +96,5 @@ export const OptionsTitle = styled.h2`
   top:-2.4rem;
   left:50%;
   transform:translateX(-50%);
+  
 `
