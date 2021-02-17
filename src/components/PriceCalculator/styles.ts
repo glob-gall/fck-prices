@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import media from "styled-media-query";
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  margin-bottom:5rem;
+`
 
 export const Header = styled.span`
-position:relative;
+  height:4rem;
+
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -38,9 +42,11 @@ ${media.lessThan('medium')`
 export const StepCounter = styled.div`
 display:flex;
 justify-content:center;
+/* margin-top:4px; */
 
 position:absolute;
 left:50%;
+transform:translate(-50%);
 `
 
 export const TotalPrice = styled.div`

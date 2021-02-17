@@ -15,7 +15,6 @@ export const Link = styled.a`
   color:#303030;
   margin-top:1rem;
   width:10rem;
-  /* padding:1rem; */
   display:block;
   text-align:center;
   font-size:24px;
@@ -63,20 +62,76 @@ export const TotalPrice = styled.h1`
     }
   `}
 `
-export const ConfirmButton = styled.button`
-  margin-bottom:4rem;
-  padding:1rem 2rem;
-  /* width:18rem; */
 
-  background:#79D363;
-  border:none;
-  border-radius:0.2rem;
-
-  font-size:24px;
-  color:#fff;
-  font-weight:bold;
-
+export const ButtonWrapper = styled.div`
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
   margin:0 auto 4rem;
+  a{
+    text-decoration:none;
+  }
+`
+
+const Button = styled.button`
+  padding:1rem 2rem;
+  display:flex;
+  max-width:18rem;
+  height:4rem;
+  
+  border:none;
+  border-radius:0.15rem;
+  color:#fff;
+  font-size:24px;
+  transition:0.2s;
+  margin: 0.5rem 1rem;
+  font-weight:bold;
+  img{
+    max-height:100%;
+    margin-right:1rem;
+  }
+  
+  
+`
+
+export const ConfirmButton = styled(Button)`
+  max-width:100%;
+  height:auto;
+  background:#79D363;
+  
+  
+  font-size:24px;
+
+  &:hover{
+    background:#79D363dd;
+  }
+  ${media.lessThan('medium')`
+    font-size:18px;
+  `}
+`
+
+export const WhatsappButton = styled(Button)`
+  background:#A2F5A5;
+  font-size:16px;
+  color:#303030;
+  
+  &:hover{
+    background:#A7F6AB;
+  }
+  ${media.lessThan('medium')`
+    font-size:14px;
+  `}
+`
+export const EmailButton = styled(Button)`
+  background:#FFE79B;
+  font-size:16px;
+  color:#303030;
+  &:hover{
+    background:#FFE89F;
+  }
+  ${media.lessThan('medium')`
+    font-size:14px;
+  `}
 `
 
 export const Options = styled.div`

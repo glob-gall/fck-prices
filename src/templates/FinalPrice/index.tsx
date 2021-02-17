@@ -1,3 +1,4 @@
+import { ArrowLeft } from '@styled-icons/feather'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { useEffect, useState } from "react"
@@ -5,14 +6,20 @@ import { OptionProps } from "../../components/Step/Option"
 import OptionMiniature from '../../components/OptionMiniature'
 import Logo from '../../public/static/svgs/logo-light.svg'
 
+import whatsapp from '../../public/static/svgs/whatsapp.svg'
+import email from '../../public/static/svgs/email.svg'
+
 import useBudget from "../../hooks/useBudget"
 import * as S from './styles'
-import { ArrowLeft } from '@styled-icons/feather'
+
+const linkEmail = 'luisfelipegalleguillos@hotmail.com'
+const linkWhatsapp = '+55(49)991075283'
 
 function TotalPrice(){
   const router = useRouter()
   const {totalPrice,steps} = useBudget()
   const [activeOptions,setActiveOptions] = useState<OptionProps[]>([])
+  const [budgetConfirmed,setBugetConfirmed] = useState(false)
   
   useEffect(()=>{
     if(totalPrice===0){
@@ -47,7 +54,30 @@ function TotalPrice(){
         O preço estimado é de <span>R$ {totalPrice}</span>
       </S.TotalPrice>
 
-      <S.ConfirmButton>Confirmar Orçamento</S.ConfirmButton>
+      <S.ButtonWrapper>
+      {!budgetConfirmed ?
+        <S.ConfirmButton onClick={()=>setBugetConfirmed(true)}>
+          Confirmar Orçamento
+        </S.ConfirmButton>
+          :
+          <>
+          
+          <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento, minhas escolhas são:\n ${activeOptions.map(opt=> opt.text).join()}`}>
+            <S.WhatsappButton>
+              <img src={whatsapp} alt="icone do WhatsApp"/>
+              Entrar em contato via WhatsApp
+            </S.WhatsappButton>
+          </a>
+          <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento, 
+          minhas escolhas são: ${activeOptions.join(' & ')}`}>
+            <S.EmailButton>
+              <img src={email} alt="uma carta com um arroba no meio"/>
+              Entrar em contato via Email
+            </S.EmailButton>
+          </a>
+        </>
+      }
+      </S.ButtonWrapper>
 
       <S.Options>
         <S.OptionsTitle>Escolhas:</S.OptionsTitle>

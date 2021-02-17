@@ -53,7 +53,7 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
       })
 
       if(activeStep+1 === steps.length){
-        router.push('/finalPrice')
+        router.push('/final-price')
         return
       }
       setActiveStep(state => state+1)
@@ -77,7 +77,14 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
   },[])
 
   return (
-    <BudgetContext.Provider value={{nextStep,prevStep,goToSpecificStep,totalPrice,activeStep,steps}}>
+    <BudgetContext.Provider value={{
+      nextStep,
+      prevStep,
+      goToSpecificStep,
+      totalPrice,
+      activeStep,
+      steps
+    }}>
       {children}
     </BudgetContext.Provider>
   )

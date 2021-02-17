@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import GlobalStyle from '../styles/Global'
 import { AppProps } from 'next/app'
 import { BudgetProvider } from '../hooks/useBudget'
@@ -12,6 +13,8 @@ import woocommerce from '../public/static/svgs/woocommerce.svg'
 import shopify from '../public/static/svgs/shopify.svg'
 import wix from '../public/static/svgs/wix.svg'
 import paint from '../public/static/svgs/paint.svg'
+import icon from '../public/static/icons/myboy.ico'
+
 import { StepProps } from '../components/Step'
 
 const steps = [
@@ -96,6 +99,10 @@ const steps = [
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+      <title>Fcktiming | Faça seu orçamento</title>
+      <link rel="shortcut icon" type="image/x-icon" href={icon} />
+      </Head>
       <GlobalStyle/>
       <BudgetProvider initialSteps={steps}>
         <Component {...pageProps} />
