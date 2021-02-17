@@ -13,7 +13,7 @@ import useBudget from "../../hooks/useBudget"
 import * as S from './styles'
 
 const linkEmail = 'contato@fcktiming.studio'
-const linkWhatsapp = '+55 (61) 981460069'
+const linkWhatsapp = '+55(61)981460069'
 
 function TotalPrice(){
   const router = useRouter()
