@@ -12,7 +12,7 @@ import email from '../../public/static/svgs/email.svg'
 import useBudget from "../../hooks/useBudget"
 import * as S from './styles'
 
-const linkEmail = 'luisfelipegalleguillos@hotmail.com'
+const linkEmail = 'contato@fcktiming.studio'
 const linkWhatsapp = '+55(49)991075283'
 
 function TotalPrice(){
@@ -62,14 +62,14 @@ function TotalPrice(){
           :
           <>
           
-          <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento, minhas escolhas são:\n ${activeOptions.map(opt=> opt.text).join()}`}>
+          <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento, minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()}`}>
             <S.WhatsappButton>
               <img src={whatsapp} alt="icone do WhatsApp"/>
               Entrar em contato via WhatsApp
             </S.WhatsappButton>
           </a>
           <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento, 
-          minhas escolhas são: ${activeOptions.join(' & ')}`}>
+          minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()}`}>
             <S.EmailButton>
               <img src={email} alt="uma carta com um arroba no meio"/>
               Entrar em contato via Email
