@@ -16,8 +16,31 @@ import paint from '../public/static/svgs/paint.svg'
 import icon from '../public/static/icons/myboy.ico'
 
 import { StepProps } from '../components/Step'
+import {useRouter} from 'next/router'
 
 const steps = [
+  {
+    question:'Você já tem um domínio cadastrado?',
+    options: [
+      {
+        img:icon,
+        img_alt:'um celular, uma moeda e um carrinho de compras',
+        text:'Já tenho um domínio',
+        description:'',
+        opt:'have-a-domain',
+        price:2000,
+      },
+      {
+        img:icon,
+        img_alt:'um celular, uma moeda e um carrinho de compras',
+        text:'Escolher um domínio',
+        description:'',
+        opt:'dont-have-a-domain',
+        price:2000,
+        redirect:'/choose-domain'
+      }
+    ]
+  },
   {
     question:'Tipo de site',
     options: [

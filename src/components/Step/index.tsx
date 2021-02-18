@@ -4,7 +4,6 @@ import Option,{OptionProps} from './Option'
 export type StepProps = {
   question: string
   options: OptionProps[]
-  // onSelect: (price:number)=>void
 }
 
 function Step({question,options}:StepProps){
