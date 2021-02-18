@@ -1,33 +1,35 @@
 import { useCallback, useEffect, useState } from 'react'
-import Link from 'next/link'
 import { ArrowLeft, X as FiX } from '@styled-icons/feather'
 import api from '../../api'
 import Logo from '../../public/static/svgs/logo-light.svg'
 import * as S from './styles'
+import useBudget from '../../hooks/useBudget'
+import { useRouter } from 'next/router'
 
 function ChooseDomainName(){
+  const router = useRouter()
+  const {goToSpecificStep,setChoosedDomain} = useBudget()
   const [domain,setDomain] = useState('')
   const [domainSearchResult,setDomainSearchResult] = useState<'error'|'available'|'in use'|''>('')
   const [loading,setLoading] = useState(false)
 
   const getDomainStatus = useCallback(async (domain:string) => {
+    const {data} = await api.get('',{params:{'domainName':domain}})
       
       if(domain ===''){
         setLoading(false)
         return
       }
       
-    const {data} = await api.get('',{params:{
-      domainName: domain
-    }})
-    
-    if(data.ErrorMessage){
-      setDomainSearchResult('error')
-    }else if(data.WhoisRecord.dataError){
+      if(data?.ErrorMessage){
+        setDomainSearchResult('error')
+      }else if(!data?.WhoisRecord.estimatedDomainAge){
       setDomainSearchResult('available')
-    }else if(data.WhoisRecord.administrativeContact){
-      setDomainSearchResult('in use')
-    }
+      }else if(data?.WhoisRecord.estimatedDomainAge){
+        setDomainSearchResult('in use')
+      }else{
+        setDomainSearchResult('')
+      }
     setLoading(false)
   },[setLoading,setDomainSearchResult])
   
@@ -48,15 +50,22 @@ function ChooseDomainName(){
     setDomainSearchResult('')
   },[setDomain])
 
+  const handleComeBack = useCallback(()=>{
+    goToSpecificStep('have-a-domain')
+  },[])
+
+  const handleConfirm = useCallback(()=>{
+    setChoosedDomain(domain)
+    router.push('/')
+  },[domain])
+
   return (
     <S.Wrapper>
     
-      <Link href="/" passHref>
-      <S.Link>
+      <S.Link onClick={handleComeBack}>
         <ArrowLeft size={36}/> 
         <span>Voltar</span>
       </S.Link>
-      </Link>
       
       <S.Image src={Logo}/>
       <S.Title>Verifique se o domínio esta disponível</S.Title>
@@ -74,7 +83,7 @@ function ChooseDomainName(){
         <S.ButtonAccept 
         
           disabled={!(domainSearchResult==="available")} 
-          onClick={()=>console.log('teste')}
+          onClick={()=>handleConfirm()}
         >
           Confirmar
         </S.ButtonAccept>

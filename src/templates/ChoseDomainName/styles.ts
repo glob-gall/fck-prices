@@ -10,11 +10,14 @@ export const Wrapper = styled(Container)`
 
   min-height:100vh;
 `
-export const Link = styled.a`
+export const Link = styled.button`
   display:flex;
   flex-direction:row;
   align-items:center;
   margin-right:auto;
+
+  border:none;
+  background:none;
 
   text-decoration:none;
   color:#303030;
@@ -51,7 +54,7 @@ export const InputContainer = styled.div`
   display:flex;
   width:30rem;
   max-width:100%;
-  margin-top:2rem;
+  margin-top:1.5rem;
   border-radius:2px;
   border:1px solid #60606060;
   background:#fff;

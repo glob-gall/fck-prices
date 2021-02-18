@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   margin-bottom:2rem;
   font-size:32px;
+  text-align:center;
 `
 
 export const OptionsContainer = styled.div`

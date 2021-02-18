@@ -153,3 +153,15 @@ export const OptionsTitle = styled.h2`
   transform:translateX(-50%);
   
 `
+
+export const Domain = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:3rem;
+
+  p{
+    color:#606060;
+  }
+`

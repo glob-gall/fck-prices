@@ -1,15 +1,17 @@
 import {useRouter} from 'next/router'
 
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useCallback, useContext, useState } from "react";
 import { StepProps } from "../components/Step";
 
 type IbudgetProvider ={
   nextStep(opt:string):void
   prevStep():void
   goToSpecificStep(step:string):void
+  setChoosedDomain:Dispatch<SetStateAction<string>>
   totalPrice:number
   activeStep:number
   steps: StepProps[]
+  choosedDomain:string
 }
 
 const BudgetContext = createContext({} as IbudgetProvider)
@@ -28,6 +30,7 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
   const [steps,setSteps] = useState(initialSteps)
   const [activeStep,setActiveStep] = useState(0)
   const [totalPrice,setTotalPrice] = useState(0)
+  const [choosedDomain,setChoosedDomain] = useState('')
 
   const nextStep = useCallback(
     (opt:string)=>{
@@ -61,9 +64,7 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
 
   const prevStep = useCallback(()=>{
     const a = steps[activeStep].options.find(option=> option.active===true)
-    console.log(a)
     
-
     if(activeStep>0){
       setActiveStep(state=>state-1)
     }
@@ -81,6 +82,8 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
       nextStep,
       prevStep,
       goToSpecificStep,
+      setChoosedDomain,
+      choosedDomain,
       totalPrice,
       activeStep,
       steps

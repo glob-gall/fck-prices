@@ -17,7 +17,7 @@ const linkWhatsapp = '+55(61)981460069'
 
 function TotalPrice(){
   const router = useRouter()
-  const {totalPrice,steps} = useBudget()
+  const {totalPrice,steps,choosedDomain} = useBudget()
   const [activeOptions,setActiveOptions] = useState<OptionProps[]>([])
   const [budgetConfirmed,setBugetConfirmed] = useState(false)
   
@@ -79,6 +79,10 @@ function TotalPrice(){
       }
       </S.ButtonWrapper>
 
+      <S.Domain>
+        <h2>Dominio</h2>
+        <p>{choosedDomain}</p>
+      </S.Domain>
       <S.Options>
         <S.OptionsTitle>Escolhas:</S.OptionsTitle>
         {activeOptions.map((opt,index)=>(
