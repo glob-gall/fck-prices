@@ -3,6 +3,9 @@ import GlobalStyle from '../styles/Global'
 import { AppProps } from 'next/app'
 import { BudgetProvider } from '../hooks/useBudget'
 
+import donthave from '../public/static/svgs/donthave.svg'
+import have from '../public/static/svgs/have.svg'
+
 import ecommerce from '../public/static/svgs/ecommerce.svg'
 import normal from '../public/static/svgs/normal.svg'
 import portfolio from '../public/static/svgs/portfolio.svg'
@@ -16,14 +19,14 @@ import paint from '../public/static/svgs/paint.svg'
 import icon from '../public/static/icons/myboy.ico'
 
 import { StepProps } from '../components/Step'
-import {useRouter} from 'next/router'
+
 
 const steps = [
   {
     question:'Você já tem um domínio cadastrado?',
     options: [
       {
-        img:icon,
+        img:donthave,
         img_alt:'um celular, uma moeda e um carrinho de compras',
         text:'Já tenho um domínio',
         description:'',
@@ -31,7 +34,7 @@ const steps = [
         price:2000,
       },
       {
-        img:icon,
+        img:have,
         img_alt:'um celular, uma moeda e um carrinho de compras',
         text:'Escolher um domínio',
         description:'',
