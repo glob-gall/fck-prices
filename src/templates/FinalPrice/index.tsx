@@ -66,14 +66,17 @@ function TotalPrice(){
           :
           <>
           
-          <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento, minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()}`}>
+          <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
+          que tenho a intenção de manter por ${years}.
+          Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
             <S.WhatsappButton>
               <img src={whatsapp} alt="icone do WhatsApp"/>
               Entrar em contato via WhatsApp
             </S.WhatsappButton>
           </a>
-          <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento, 
-          minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()}`}>
+          <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
+          que tenho a intenção de manter por ${years}.
+          Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
             <S.EmailButton>
               <img src={email} alt="uma carta com um arroba no meio"/>
               Entrar em contato via Email
