@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   display:flex;
@@ -11,8 +12,6 @@ export const Wrapper = styled.div`
   height:8rem;
   font-size:22px;
   padding:1rem;
-
-  
 
   img{
       max-width:100%;
@@ -33,4 +32,10 @@ export const Wrapper = styled.div`
     border:2px solid #C7EBFF;
     transform:translateY(-0.5rem);
   }
+
+  ${media.lessThan('medium')`
+    width:16rem;
+    height:6rem;
+    font-size:18px;
+  `}
 `

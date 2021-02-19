@@ -31,7 +31,7 @@ const steps = [
         text:'Já tenho um domínio',
         description:'',
         opt:'have-a-domain',
-        price:2000,
+        price:0,
       },
       {
         img:have,
@@ -39,7 +39,7 @@ const steps = [
         text:'Escolher um domínio',
         description:'',
         opt:'dont-have-a-domain',
-        price:2000,
+        price:40,
         redirect:'/choose-domain'
       }
     ]
@@ -118,6 +118,36 @@ const steps = [
         opt:'no-web-builder',
         price:790
       }
+    ]
+  },
+  {
+    question:'Por quantos anos pretende manter o site ativo?',
+    rangeItems:[
+      {
+        text:'1 Ano',
+        opt:1,
+        price:100
+      },
+      {
+        text:'2 Anos',
+        opt:2,
+        price:200
+      },
+      {
+        text:'3 Anos',
+        opt:3,
+        price:300
+      },
+      {
+        text:'4 Anos',
+        opt:4,
+        price:400
+      },
+      {
+        text:'5 Anos',
+        opt:5,
+        price:500
+      },
     ]
   }
 ] as StepProps[]

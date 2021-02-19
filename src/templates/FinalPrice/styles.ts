@@ -67,7 +67,6 @@ export const ButtonWrapper = styled.div`
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  margin:0 auto 4rem;
   a{
     text-decoration:none;
   }
@@ -78,7 +77,6 @@ const Button = styled.button`
   display:flex;
   max-width:18rem;
   height:4rem;
-  
   border:none;
   border-radius:0.15rem;
   color:#fff;
@@ -135,14 +133,17 @@ export const EmailButton = styled(Button)`
 `
 
 export const Options = styled.div`
+  max-width:60rem;
+  margin-left: auto;
+  margin-right:auto;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
   position:relative;
+    margin-bottom:2rem;
   ${media.lessThan('medium')`
     margin-top:1rem;
-    margin-bottom:1rem;
   `}
 `
 
@@ -154,13 +155,28 @@ export const OptionsTitle = styled.h2`
   
 `
 
-export const Domain = styled.div`
+export const DomainAndYears = styled.div`
   display:flex;
-  flex-direction:column;
+  flex-wrap:wrap;
   justify-content:center;
   align-items:center;
   margin-bottom:3rem;
 
+  div{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    padding:0.5rem;
+    width:18rem;
+    margin:0.5rem;
+
+    border-radius:2px;
+    background:#ddd;
+    border:1px solid #60606060;
+    h2{
+      font-size:18px;
+    }
+  }
   p{
     color:#606060;
   }

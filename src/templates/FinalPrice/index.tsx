@@ -17,7 +17,7 @@ const linkWhatsapp = '+55(61)981460069'
 
 function TotalPrice(){
   const router = useRouter()
-  const {totalPrice,steps,choosedDomain} = useBudget()
+  const {totalPrice,steps,choosedDomain,years} = useBudget()
   const [activeOptions,setActiveOptions] = useState<OptionProps[]>([])
   const [budgetConfirmed,setBugetConfirmed] = useState(false)
   
@@ -29,11 +29,14 @@ function TotalPrice(){
     setActiveOptions([])
 
     steps.forEach(step=>{
-      step.options.forEach(option=>{
-        if(option.active){
-          setActiveOptions(state=>[...state,option])
-        }
-      })
+      if(step.options){
+        step.options.forEach(option=>{
+          if(option.active){
+            setActiveOptions(state=>[...state,option])
+          }
+        })
+      }
+      
     })
   },[])
     
@@ -59,6 +62,7 @@ function TotalPrice(){
         <S.ConfirmButton onClick={()=>setBugetConfirmed(true)}>
           Confirmar Orçamento
         </S.ConfirmButton>
+
           :
           <>
           
@@ -79,10 +83,18 @@ function TotalPrice(){
       }
       </S.ButtonWrapper>
 
-      <S.Domain>
+        <S.DomainAndYears>
+      {choosedDomain && (
+        <div>
         <h2>Dominio</h2>
         <p>{choosedDomain}</p>
-      </S.Domain>
+        </div>
+        )}
+        <div>
+          <h2>Anos</h2>
+          <p>{years}</p>
+        </div>
+      </S.DomainAndYears>
       <S.Options>
         <S.OptionsTitle>Escolhas:</S.OptionsTitle>
         {activeOptions.map((opt,index)=>(
