@@ -147,6 +147,7 @@ export const EmailButton = styled(Button)`
 `
 
 export const Options = styled.div`
+  margin-top:2rem;
   max-width:60rem;
   margin-left: auto;
   margin-right:auto;
@@ -171,27 +172,15 @@ export const OptionsTitle = styled.h2`
 
 export const DomainAndYears = styled.div`
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
   align-items:center;
-  margin-bottom:3rem;
+  text-align:center;
+  justify-content:center;
+  margin:0.5rem;
+  width:20rem;
+  height:8rem;
+  font-size:22px;
+  padding:1rem;
 
-  div{
-    display:flex;
-    align-items:center;
-    flex-direction:column;
-    padding:0.5rem;
-    width:18rem;
-    margin:0.5rem;
-
-    border-radius:2px;
-    background:#ddd;
-    border:1px solid #60606060;
-    h2{
-      font-size:18px;
-    }
-  }
-  p{
-    color:#606060;
-  }
+  background:#C7EBFF60;
+  border:2px solid #C7EBFF00;
 `

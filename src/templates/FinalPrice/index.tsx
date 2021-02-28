@@ -116,21 +116,18 @@ function TotalPrice(){
         </>
       }
       </S.ButtonWrapper>
-
-        <S.DomainAndYears>
-      {choosedDomain && (
-        <div>
-        <h2>Dominio</h2>
-        <p>{choosedDomain}</p>
-        </div>
-        )}
-        <div>
-          <h2>Anos</h2>
-          <p>{years}</p>
-        </div>
-      </S.DomainAndYears>
       <S.Options>
         <S.OptionsTitle>Escolhas:</S.OptionsTitle>
+        <S.DomainAndYears>
+          {choosedDomain ? (
+            <p>{choosedDomain}</p>
+          ) :(
+            <p>Já tenho um domínio</p>
+          )}
+        </S.DomainAndYears>
+        <S.DomainAndYears>
+          <p>{years} Ano{years>1 && 's'}</p>
+        </S.DomainAndYears>
         {activeOptions.map((opt,index)=>(
           <OptionMiniature 
             key={index} 
