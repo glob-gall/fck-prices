@@ -67,6 +67,13 @@ export const ButtonWrapper = styled.div`
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
+  margin:1rem auto 2rem;
+  flex-direction:column;
+  text-align:center;
+  div{
+    display:flex;
+    justify-content:center;
+  }
   a{
     text-decoration:none;
   }
@@ -75,6 +82,8 @@ export const ButtonWrapper = styled.div`
 const Button = styled.button`
   padding:1rem 2rem;
   display:flex;
+  align-items:center;
+  justify-content:center;
   max-width:18rem;
   height:4rem;
   border:none;
@@ -108,11 +117,15 @@ export const ConfirmButton = styled(Button)`
   `}
 `
 
+export const ButtonsTitle = styled.h2`
+  margin-bottom:0.5rem;
+`
+
 export const WhatsappButton = styled(Button)`
   background:#A2F5A5;
   font-size:16px;
   color:#303030;
-  
+  width:14rem;
   &:hover{
     background:#A7F6AB;
   }
@@ -124,6 +137,7 @@ export const EmailButton = styled(Button)`
   background:#FFE79B;
   font-size:16px;
   color:#303030;
+  width:14rem;
   &:hover{
     background:#FFE89F;
   }
