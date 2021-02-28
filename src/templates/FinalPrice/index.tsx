@@ -15,31 +15,60 @@ import * as S from './styles'
 const linkEmail = 'contato@fcktiming.studio'
 const linkWhatsapp = '+55(61)981460069'
 
+type ActiveOptionProps = OptionProps & {
+  step:string
+}
+
 function TotalPrice(){
   const router = useRouter()
-  const {totalPrice,steps,choosedDomain,years} = useBudget()
-  const [activeOptions,setActiveOptions] = useState<OptionProps[]>([])
+  const {steps,choosedDomain,years} = useBudget()
+  const [totalPrice,setTotalPrice] = useState(0)
+  const [activeOptions,setActiveOptions] = useState<ActiveOptionProps[]>([])
   const [budgetConfirmed,setBugetConfirmed] = useState(false)
   
   useEffect(()=>{
-    if(totalPrice===0){
-      router.push('/')
-      return
-    }
     setActiveOptions([])
-
+    let goBack = true
     steps.forEach(step=>{
       if(step.options){
         step.options.forEach(option=>{
           if(option.active){
-            setActiveOptions(state=>[...state,option])
+            let activeOption:ActiveOptionProps 
+            activeOption = {
+              ...option,
+              step:step.question
+            }
+            setActiveOptions(state=>[...state, activeOption])
+            goBack = false
           }
         })
       }
-      
     })
+    if(goBack){
+      router.push('/')
+    }
   },[])
     
+  useEffect(()=>{
+    let domain:number
+    let siteType:number
+    let platform:number
+    activeOptions.map(opt=>{
+      if(opt.step === "Você já tem um domínio cadastrado?"){
+        domain = opt.price
+      }
+      if(opt.step === "Tipo de site"){
+        siteType = opt.price
+      }
+      if(opt.step === "Plataforma"){
+        platform = opt.price
+      }
+    })
+    
+    const calculatedPrice = domain + (years * platform) + siteType
+    setTotalPrice(calculatedPrice)
+  },[activeOptions,setTotalPrice,years])
+
   return (
     <S.Wrapper>
 
@@ -67,7 +96,7 @@ function TotalPrice(){
           <>
           
           <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
-          que tenho a intenção de manter por ${years}.
+          que tenho a intenção de manter por ${years} anos.
           Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
             <S.WhatsappButton>
               <img src={whatsapp} alt="icone do WhatsApp"/>
@@ -75,7 +104,7 @@ function TotalPrice(){
             </S.WhatsappButton>
           </a>
           <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
-          que tenho a intenção de manter por ${years}.
+          que tenho a intenção de manter por ${years} anos.
           Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
             <S.EmailButton>
               <img src={email} alt="uma carta com um arroba no meio"/>

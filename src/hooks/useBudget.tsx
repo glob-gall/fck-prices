@@ -9,7 +9,6 @@ type IbudgetProvider ={
   goToSpecificStep(step:string):void
   setChoosedDomain:Dispatch<SetStateAction<string>>
   nextStepYear(opt:number):void
-  totalPrice:number
   activeStep:number
   steps: StepProps[]
   years:number
@@ -31,7 +30,6 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
   const router = useRouter()
   const [steps,setSteps] = useState(initialSteps)
   const [activeStep,setActiveStep] = useState(0)
-  const [totalPrice,setTotalPrice] = useState(0)
   const [years,setYears] = useState(0)
   const [choosedDomain,setChoosedDomain] = useState('')
 
@@ -53,13 +51,10 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
             return option
           }
           if(option.opt !== opt && option.active){
-            setTotalPrice(state=>state - option.price)
             option.active = false
           }
-          
           if(option.opt === opt){
             option.active = true
-            setTotalPrice(state=>state+ option.price)
           }
         
           return option
@@ -72,11 +67,9 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
         return
       }
       setActiveStep(state => state+1)
-  },[activeStep,totalPrice])
+  },[activeStep])
 
   const prevStep = useCallback(()=>{
-    // const a = steps[activeStep].options.find(option=> option.active===true)
-    
     if(activeStep>0){
       setActiveStep(state=>state-1)
     }
@@ -98,7 +91,6 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
       nextStepYear,
       years,
       choosedDomain,
-      totalPrice,
       activeStep,
       steps
     }}>
