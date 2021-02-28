@@ -45,37 +45,6 @@ const steps = [
     ]
   },
   {
-    question:'Por quantos anos pretende manter o site ativo?',
-    options:[],
-    rangeItems:[
-      {
-        text:'1 Ano',
-        opt:1,
-        price:100
-      },
-      {
-        text:'2 Anos',
-        opt:2,
-        price:200
-      },
-      {
-        text:'3 Anos',
-        opt:3,
-        price:300
-      },
-      {
-        text:'4 Anos',
-        opt:4,
-        price:400
-      },
-      {
-        text:'5 Anos',
-        opt:5,
-        price:500
-      },
-    ]
-  },
-  {
     question:'Tipo de site',
     options: [
       {
@@ -150,7 +119,38 @@ const steps = [
         price:790
       }
     ]
-  }
+  },
+  {
+    question:'Por quantos anos pretende manter o site ativo?',
+    options:[],
+    rangeItems:[
+      {
+        text:'1 Ano',
+        opt:1,
+        price:100
+      },
+      {
+        text:'2 Anos',
+        opt:2,
+        price:200
+      },
+      {
+        text:'3 Anos',
+        opt:3,
+        price:300
+      },
+      {
+        text:'4 Anos',
+        opt:4,
+        price:400
+      },
+      {
+        text:'5 Anos',
+        opt:5,
+        price:500
+      },
+    ]
+  },
 ] as StepProps[]
 
 function App({ Component, pageProps }: AppProps) {

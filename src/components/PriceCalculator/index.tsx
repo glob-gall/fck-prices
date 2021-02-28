@@ -5,7 +5,7 @@ import Step from '../Step'
 import useBudget from '../../hooks/useBudget'
 
 function PriceCalculator() {
-  const {prevStep,totalPrice,activeStep,steps} = useBudget()
+  const {prevStep,price,activeStep,steps} = useBudget()
 
   return (
     <S.Wrapper>
@@ -22,8 +22,8 @@ function PriceCalculator() {
       </S.StepCounter>
       <S.TotalPrice>
       {
-        totalPrice>0 &&
-        <span>{`R$ ${totalPrice},00`}</span>
+        price>0 &&
+        <span>{`R$ ${price},00`}</span>
       }
       </S.TotalPrice>
 
