@@ -100,7 +100,10 @@ const Button = styled.button`
   
   
 `
-
+export const ComfirmButtonWrapper = styled.div`
+  display:flex;
+  flex-wrap:wrap;
+`
 export const ConfirmButton = styled(Button)`
   max-width:100%;
   height:auto;
@@ -183,4 +186,9 @@ export const DomainAndYears = styled.div`
 
   background:#C7EBFF60;
   border:2px solid #C7EBFF00;
+  ${media.lessThan('medium')`
+    width:16rem;
+    height:6rem;
+    font-size:18px;
+  `}
 `
