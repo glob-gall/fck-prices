@@ -17,7 +17,9 @@ export const Header = styled.span`
   font-size:24px;
   margin-bottom:6rem;
   padding-top:1rem;
-
+  a{
+    text-decoration:none;
+  }
   ${media.lessThan('medium')`
     font-size:18px;
   `}

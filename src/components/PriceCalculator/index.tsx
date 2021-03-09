@@ -10,11 +10,14 @@ function PriceCalculator() {
   return (
     <S.Wrapper>
       <S.Header>
-
       <div>
       {
-        activeStep>0 &&
+        activeStep>0 ?
         <S.PrevButton onClick={()=>prevStep()}><ArrowLeft size={36}/> <p>Anterior</p></S.PrevButton>
+        :
+        <a href="https://fcktiming.studio/">
+          <S.PrevButton ><ArrowLeft size={36}/><p>Home</p></S.PrevButton>
+        </a>
       }
       </div>
       <S.StepCounter>

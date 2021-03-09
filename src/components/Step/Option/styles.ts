@@ -31,6 +31,14 @@ export const Wrapper = styled.div<ContainerProps>`
       height:10rem;
     }
 
+  ${media.between('medium',"huge")`
+    padding:0.6rem;
+    width:12rem;
+    img{
+        width:6rem;
+        height:6rem;
+      }
+  `}
   ${media.lessThan('medium')`
   padding:0.5rem;
   img{

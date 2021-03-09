@@ -10,7 +10,7 @@ function ChooseDomainName(){
   const router = useRouter()
   const {goToSpecificStep,setChoosedDomain} = useBudget()
   const [domain,setDomain] = useState('')
-  const [domainSearchResult,setDomainSearchResult] = useState<'Erro'|'disponível'|'Em uso'|''>('')
+  const [domainSearchResult,setDomainSearchResult] = useState<'Dominio mal informado'|'Disponível'|'Em uso'|''>('')
   const [loading,setLoading] = useState(false)
 
   const getDomainStatus = useCallback(async (domain:string) => {
@@ -22,9 +22,9 @@ function ChooseDomainName(){
       }
       
       if(data?.ErrorMessage){
-        setDomainSearchResult('Erro')
+        setDomainSearchResult('Dominio mal informado')
       }else if(!data?.WhoisRecord.estimatedDomainAge){
-      setDomainSearchResult('disponível')
+      setDomainSearchResult('Disponível')
       }else if(data?.WhoisRecord.estimatedDomainAge){
         setDomainSearchResult('Em uso')
       }else{
@@ -79,10 +79,10 @@ function ChooseDomainName(){
       {loading && <p>loading...</p>}
       {(!loading && domain) && domainSearchResult}
       <S.ButtonWrapper>
-        <S.ButtonCancel>Cancelar</S.ButtonCancel>
+        <S.ButtonCancel onClick={handleComeBack}>Cancelar</S.ButtonCancel>
         <S.ButtonAccept 
         
-          disabled={!(domainSearchResult==="disponível")} 
+          disabled={!(domainSearchResult==="Disponível")} 
           onClick={()=>handleConfirm()}
         >
           Confirmar

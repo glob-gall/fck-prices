@@ -5,6 +5,12 @@ export const Wrapper = styled.div`
   display:flex;
   flex-direction:column;
 `
+export const Header = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:1rem;
+`
 
 export const Link = styled.a`
   display:flex;
@@ -13,7 +19,6 @@ export const Link = styled.a`
 
   text-decoration:none;
   color:#303030;
-  margin-top:1rem;
   width:10rem;
   display:block;
   text-align:center;
@@ -26,6 +31,14 @@ export const Link = styled.a`
       display:none;
     }
   `}
+`
+export const HomeButton = styled.a`
+  text-decoration:none;
+  color:#fff;
+  font-size:18px;
+  background:#4961D2;
+  padding:0.6rem 2rem;
+  border-radius:2px;
 `
 
 export const Logo = styled.div`

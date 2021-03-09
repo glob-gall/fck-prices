@@ -6,16 +6,12 @@ import { BudgetProvider } from '../hooks/useBudget'
 import donthave from '../public/static/svgs/donthave.svg'
 import have from '../public/static/svgs/have.svg'
 
+import ecommercepremium from '../public/static/svgs/e-commercepremium.svg'
 import ecommerce from '../public/static/svgs/ecommerce.svg'
 import normal from '../public/static/svgs/normal.svg'
 import portfolio from '../public/static/svgs/portfolio.svg'
+import mailing from '../public/static/svgs/mailing.svg'
 
-import hands from '../public/static/svgs/hands.svg'
-import wordpress from '../public/static/svgs/wordpress.svg'
-import woocommerce from '../public/static/svgs/woocommerce.svg'
-import shopify from '../public/static/svgs/shopify.svg'
-import wix from '../public/static/svgs/wix.svg'
-import paint from '../public/static/svgs/paint.svg'
 import icon from '../public/static/icons/myboy.ico'
 
 import { StepProps } from '../components/Step'
@@ -48,7 +44,7 @@ const steps = [
     question:'Tipo de site',
     options: [
       {
-        img:ecommerce,
+        img:ecommercepremium,
         img_alt:'um celular, uma moeda e um carrinho de compras',
         text:'E-commerce Premium',
         description:'(Integração com Woocomerce)',
@@ -84,7 +80,7 @@ const steps = [
         hostPrice: 156
       },
       {
-        img:portfolio,
+        img:mailing,
         img_alt:'uma pasta com um documendo para fora',
         text:'Página simples',
         description:'(captação de emails e divulgação)',

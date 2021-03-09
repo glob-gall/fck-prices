@@ -71,13 +71,15 @@ function TotalPrice(){
 
   return (
     <S.Wrapper>
-
-      <Link href="/" passHref>
-      <S.Link>
-        <ArrowLeft size={36}/> 
-        <span>Voltar</span>
-      </S.Link>
-      </Link>
+      <S.Header>
+        <Link href="/" passHref>
+        <S.Link>
+          <ArrowLeft size={36}/> 
+          <span>Voltar</span>
+        </S.Link>
+        </Link>
+        <S.HomeButton href="https://fcktiming.studio/">Home</S.HomeButton>
+      </S.Header>
 
       <S.Logo>
         <img src={Logo} alt="fck timing logo"/>
@@ -96,7 +98,7 @@ function TotalPrice(){
 
             <S.YearPrice onClick={()=>setRadio(false)}>
               <input type="radio" id="month" name="price" value="month" checked={!radio} />
-              <label >+R$ {yearPrice/12}/mês</label>
+              <label >+R$ {(yearPrice/12).toFixed(2)}/mês</label>
               <div className="radio"/> 
             </S.YearPrice>
           </S.YearPriceContainer>
@@ -109,22 +111,29 @@ function TotalPrice(){
         <S.ConfirmButton onClick={()=>setBugetConfirmed(true)}>
           Confirmar Orçamento
         </S.ConfirmButton>
-
           :
           <>
             <S.ButtonsTitle>Entre em contato</S.ButtonsTitle>
             <S.ComfirmButtonWrapper>
               
-                <S.WhatsappButton href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
+                <S.WhatsappButton 
+                href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
                 que tenho a intenção de manter por ${years} e pagar ${radio?'anualmente':'mensalmente'}.
-                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
-                    <img src={whatsapp} alt="icone do WhatsApp"/>
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}
+                target="_blank"
+                >
+                    <img src={whatsapp} 
+                    alt="icone do WhatsApp"
+                    />
                     WhatsApp
                 </S.WhatsappButton>
               
-                <S.EmailButton href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
+                <S.EmailButton 
+                href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
                 que tenho a intenção de manter por ${years} anos e pagar ${radio?'anualmente':'mensalmente'}.
-                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}
+                target="_blank"
+                >
                     <img src={email} alt="uma carta com um arroba no meio"/>
                     Email
                 </S.EmailButton>
