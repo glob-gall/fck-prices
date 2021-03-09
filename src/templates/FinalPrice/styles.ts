@@ -41,11 +41,8 @@ export const HomeButton = styled.a`
   border-radius:2px;
 `
 
-export const Logo = styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:1rem;
+export const Logo = styled.a`
+  margin:1rem auto;
   img{
     width:9rem;
   }
@@ -69,7 +66,7 @@ export const TotalPrice = styled.h1`
     flex-direction:column;
   }
   span{
-    font-size:82px;
+    font-size:78px;
     color:#79D363;
   }
   

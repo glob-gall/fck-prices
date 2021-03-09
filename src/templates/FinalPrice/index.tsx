@@ -81,7 +81,7 @@ function TotalPrice(){
         <S.HomeButton href="https://fcktiming.studio/">Home</S.HomeButton>
       </S.Header>
 
-      <S.Logo>
+      <S.Logo href="https://fcktiming.studio/">
         <img src={Logo} alt="fck timing logo"/>
       </S.Logo>
       <S.TotalPrice>
