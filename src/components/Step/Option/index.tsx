@@ -10,6 +10,7 @@ export type OptionProps = {
   opt?:string
   active?:boolean
   price:number
+  hostPrice?:number
   redirect?:string
 }
 

@@ -51,16 +51,90 @@ export const TotalPrice = styled.h1`
   
   display:flex;
   flex-direction:column;
+  >div{
+    display:flex;
+    flex-direction:column;
+  }
   span{
     font-size:82px;
     color:#79D363;
   }
+  
   ${media.lessThan('medium')`
     font-size:34px;
     span{
       font-size:52px;
     }
   `}
+`
+export const YearPriceContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+`
+export const YearPrice = styled.div`
+  cursor:pointer;
+  font-size:24px;
+  color:#ff9f1c;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  margin:0 2rem;
+  position:relative;
+
+  input{
+    display:none;
+  }
+  label{
+    cursor:pointer;
+  }
+  .radio{
+    position: absolute;
+    top: 0;
+    left: -1.6rem;
+    height: 25px;
+    width: 25px;
+    border-radius:50%;
+    transition:0.2s;
+  }
+  .radio::before{
+    position:absolute;
+      content:'';
+      width:20px;
+      height: 20px;
+      border-radius:50%;
+      background:#fff;
+      left:50%;
+      top:50%;
+      transform:translateY(-50%) translate(-50%);
+  }
+  .radio::after{
+    transition:0.5s;
+    position:absolute;
+      content:'';
+      width:10px;
+      height: 10px;
+      border-radius:50%;
+      border:5px solid #fff;
+      left:50%;
+      top:50%;
+      transform:translateY(-50%) translate(-50%);
+  }
+  
+  input:checked ~.radio{
+    &::after{
+      border:5px solid #ff9f1c;
+      background:#fff;
+    }
+  }
+  &:hover{
+    .radio::before{
+      background:#ddd;
+    }
+  }
 `
 
 export const ButtonWrapper = styled.div`
@@ -124,7 +198,21 @@ export const ButtonsTitle = styled.h2`
   margin-bottom:0.5rem;
 `
 
-export const WhatsappButton = styled(Button)`
+const buttonLink = styled.a`
+  margin:0.5rem;
+  border-radius:0.2rem;
+  padding:1rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  max-width:18rem;
+  height:4rem;
+  img{
+      max-height:100%;
+      margin-right:1rem;
+    }
+` 
+export const WhatsappButton = styled(buttonLink)`
   background:#A2F5A5;
   font-size:16px;
   color:#303030;
@@ -136,7 +224,7 @@ export const WhatsappButton = styled(Button)`
     font-size:14px;
   `}
 `
-export const EmailButton = styled(Button)`
+export const EmailButton = styled(buttonLink)`
   background:#FFE79B;
   font-size:16px;
   color:#303030;

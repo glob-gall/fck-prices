@@ -22,9 +22,11 @@ type ActiveOptionProps = OptionProps & {
 function TotalPrice(){
   const router = useRouter()
   const {steps,choosedDomain,years} = useBudget()
-  const [totalPrice,setTotalPrice] = useState(0)
+  const [developmentPrice,setDevelopmentPrice] = useState(0)
+  const [yearPrice,setYearPrice] = useState(0)
   const [activeOptions,setActiveOptions] = useState<ActiveOptionProps[]>([])
   const [budgetConfirmed,setBugetConfirmed] = useState(false)
+  const [radio,setRadio] = useState(true)
   
   useEffect(()=>{
     setActiveOptions([])
@@ -51,23 +53,21 @@ function TotalPrice(){
     
   useEffect(()=>{
     let domain:number
-    let siteType:number
-    let platform:number
+    let sitePrice:number
+    let hostPrice:number
     activeOptions.map(opt=>{
       if(opt.step === "Você já tem um domínio cadastrado?"){
         domain = opt.price
       }
       if(opt.step === "Tipo de site"){
-        siteType = opt.price
-      }
-      if(opt.step === "Plataforma"){
-        platform = opt.price
+        sitePrice = opt.price
+        hostPrice = opt.hostPrice
       }
     })
-    
-    const calculatedPrice = domain + (years * platform) + siteType
-    setTotalPrice(calculatedPrice)
-  },[activeOptions,setTotalPrice,years])
+    const calculatedYearPrice = (hostPrice*12)+domain
+    setDevelopmentPrice(sitePrice)
+    setYearPrice(calculatedYearPrice)
+  },[activeOptions,setDevelopmentPrice,setYearPrice])
 
   return (
     <S.Wrapper>
@@ -83,7 +83,25 @@ function TotalPrice(){
         <img src={Logo} alt="fck timing logo"/>
       </S.Logo>
       <S.TotalPrice>
-        O preço estimado é de <span>R$ {totalPrice}</span>
+        O preço estimado é de 
+        <div>
+          <span>R$ {developmentPrice}</span>
+
+          <S.YearPriceContainer>
+            <S.YearPrice onClick={()=>setRadio(true)}>
+              <input type="radio" id="year" name="price" value="year" checked={radio} />
+              <label >+R$ {yearPrice}/ano</label>
+              <div className="radio"/> 
+            </S.YearPrice>
+
+            <S.YearPrice onClick={()=>setRadio(false)}>
+              <input type="radio" id="month" name="price" value="month" checked={!radio} />
+              <label >+R$ {yearPrice/12}/mês</label>
+              <div className="radio"/> 
+            </S.YearPrice>
+          </S.YearPriceContainer>
+
+        </div>
       </S.TotalPrice>
 
       <S.ButtonWrapper>
@@ -96,35 +114,31 @@ function TotalPrice(){
           <>
             <S.ButtonsTitle>Entre em contato</S.ButtonsTitle>
             <S.ComfirmButtonWrapper>
-              <a href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
-              que tenho a intenção de manter por ${years} anos.
-              Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
-                <S.WhatsappButton>
-                  <img src={whatsapp} alt="icone do WhatsApp"/>
-                  WhatsApp
+              
+                <S.WhatsappButton href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
+                que tenho a intenção de manter por ${years} e pagar ${radio?'anualmente':'mensalmente'}.
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
+                    <img src={whatsapp} alt="icone do WhatsApp"/>
+                    WhatsApp
                 </S.WhatsappButton>
-              </a>
-              <a href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
-              que tenho a intenção de manter por ${years} anos.
-              Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
-                <S.EmailButton>
-                  <img src={email} alt="uma carta com um arroba no meio"/>
-                  Email
+              
+                <S.EmailButton href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
+                que tenho a intenção de manter por ${years} anos e pagar ${radio?'anualmente':'mensalmente'}.
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}>
+                    <img src={email} alt="uma carta com um arroba no meio"/>
+                    Email
                 </S.EmailButton>
-              </a>
             </S.ComfirmButtonWrapper>
         </>
       }
       </S.ButtonWrapper>
       <S.Options>
         <S.OptionsTitle>Escolhas:</S.OptionsTitle>
-        <S.DomainAndYears>
-          {choosedDomain ? (
-            <p>{choosedDomain}</p>
-          ) :(
-            <p>Já tenho um domínio</p>
+          {choosedDomain && (
+          <S.DomainAndYears>
+              <p>{choosedDomain}</p>
+          </S.DomainAndYears>
           )}
-        </S.DomainAndYears>
         <S.DomainAndYears>
           <p>{years} Ano{years>1 && 's'}</p>
         </S.DomainAndYears>

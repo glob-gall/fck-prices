@@ -50,10 +50,20 @@ const steps = [
       {
         img:ecommerce,
         img_alt:'um celular, uma moeda e um carrinho de compras',
+        text:'E-commerce Premium',
+        description:'(Integração com Woocomerce)',
+        opt:'ecommerce-premium',
+        price:3500,
+        hostPrice: 320
+      },
+      {
+        img:ecommerce,
+        img_alt:'um celular, uma moeda e um carrinho de compras',
         text:'E-commerce',
         description:'(loja virtual)',
         opt:'ecommerce',
-        price:2000
+        price:1440,
+        hostPrice: 160
       },
       {
         img:normal,
@@ -61,7 +71,8 @@ const steps = [
         text:'Site institucional',
         description:'(site sobre sua empresa)',
         opt:'site-institucional',
-        price:1000
+        price:480,
+        hostPrice: 28
       },
       {
         img:portfolio,
@@ -69,54 +80,17 @@ const steps = [
         text:'Site pessoal',
         description:'(portfólio com seu contato)',
         opt:'site-pessoal',
-        price:500
-      }
-    ]
-  },
-  {
-    question:'Plataforma',
-    options:[
-      {
-        img:hands,
-        img_alt:'aperto de mãos',
-        text:'Escolha para mim',
-        opt:'any',
-        price:1300
+        price:320,
+        hostPrice: 156
       },
       {
-        img:wordpress,
-        img_alt:'icone wordpress',
-        text:'Wordpress',
-        opt:'wordpress',
-        price:1375
-      },
-      {
-        img:woocommerce,
-        img_alt:'icone woocomerce',
-        text:'Woocomerce',
-        opt:'woocomerce',
-        price:1321
-      },
-      {
-        img:shopify,
-        img_alt:'icone shopify',
-        text:'Shopify',
-        opt:'shopify',
-        price:1321
-      },
-      {
-        img:wix,
-        img_alt:'icone wix',
-        text:'Wix',
-        opt:'wix',
-        price:545
-      },
-      {
-        img:paint,
-        img_alt:'pincel',
-        text:'Sem web builder!',
-        opt:'no-web-builder',
-        price:790
+        img:portfolio,
+        img_alt:'uma pasta com um documendo para fora',
+        text:'Página simples',
+        description:'(captação de emails e divulgação)',
+        opt:'site-simples',
+        price:112,
+        hostPrice:6
       }
     ]
   },
