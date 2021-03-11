@@ -15,32 +15,33 @@ const OptionModifier = {
 export const Wrapper = styled.div<ContainerProps>`
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
   text-align:center;
   cursor: pointer;
+  border:2px solid transparent;
 
   margin:0.5rem;
   width:16rem;
+  /* height:14rem; */
   
-  padding:1rem;
+  padding:1rem 0.5rem;
 
   border-radius:0.2rem;
   img{
       width:10rem;
       height:10rem;
     }
+  
 
   ${media.between('medium',"huge")`
-    padding:0.6rem;
-    width:12rem;
+    width:14rem;
     img{
         width:6rem;
         height:6rem;
       }
   `}
   ${media.lessThan('medium')`
-  padding:0.5rem;
+    width:12rem;
   img{
       width:3.4rem;
       height:3.4rem;
@@ -59,12 +60,21 @@ export const Wrapper = styled.div<ContainerProps>`
 `
 
 export const Title = styled.strong`
-font-size:22px;
-margin-top:0.5rem;
+  font-size:22px;
+  margin-top:1rem;
+  ${media.lessThan('medium')`
+    font-size:18px;
+    margin-top:0.5rem;
+  `}
 `
 
 export const Description = styled.span`
-  font-size:16px;
+  font-size:14px;
   color:#909090;
   font-weight:bold;
+  margin-top:0.5rem;
+  ${media.lessThan('medium')`
+    font-size:14px;
+    margin-top:0.5rem;
+  `}
 `

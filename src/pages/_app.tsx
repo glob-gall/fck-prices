@@ -46,9 +46,9 @@ const steps = [
       {
         img:ecommercepremium,
         img_alt:'um celular, uma moeda e um carrinho de compras',
-        text:'E-commerce Premium',
-        description:'(Integração com Woocomerce)',
-        opt:'ecommerce-premium',
+        text:'E-commerce Gold',
+        description:'Integração com Woocomerce',
+        opt:'ecommerce-gold',
         price:3500,
         hostPrice: 320
       },
@@ -56,7 +56,7 @@ const steps = [
         img:ecommerce,
         img_alt:'um celular, uma moeda e um carrinho de compras',
         text:'E-commerce',
-        description:'(loja virtual)',
+        description:'loja virtual',
         opt:'ecommerce',
         price:1440,
         hostPrice: 160
@@ -65,7 +65,7 @@ const steps = [
         img:normal,
         img_alt:'um frame de um site simplicifado',
         text:'Site institucional',
-        description:'(site sobre sua empresa)',
+        description:'site sobre sua empresa',
         opt:'site-institucional',
         price:480,
         hostPrice: 28
@@ -74,7 +74,7 @@ const steps = [
         img:portfolio,
         img_alt:'uma pasta com um documendo para fora',
         text:'Site pessoal',
-        description:'(portfólio com seu contato)',
+        description:'portfólio com seu contato',
         opt:'site-pessoal',
         price:320,
         hostPrice: 156
@@ -83,7 +83,7 @@ const steps = [
         img:mailing,
         img_alt:'uma pasta com um documendo para fora',
         text:'Página simples',
-        description:'(captação de emails e divulgação)',
+        description:'captação de emails e divulgação',
         opt:'site-simples',
         price:112,
         hostPrice:6

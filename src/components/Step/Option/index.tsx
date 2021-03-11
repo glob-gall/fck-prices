@@ -28,8 +28,10 @@ function Option({img,img_alt,text,opt,active,description,redirect}:OptionProps){
   return(
     <S.Wrapper active={active} onClick={()=> onCLickFn(opt)}>
       <img src={img} alt={img_alt || ''}/>
-      <S.Title>{text}</S.Title>
-      <S.Description>{description}</S.Description>
+    
+        <S.Title>{text}</S.Title>
+        <S.Description>{description}</S.Description>
+      
     </S.Wrapper>
   )
 }
