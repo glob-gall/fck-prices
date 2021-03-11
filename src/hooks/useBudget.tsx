@@ -9,6 +9,7 @@ type IbudgetProvider ={
   goToSpecificStep(step:string):void
   setChoosedDomain:Dispatch<SetStateAction<string>>
   nextStepYear(opt:number):void
+  setActiveStep(step:number):void
   price
   activeStep:number
   steps: StepProps[]
@@ -94,6 +95,7 @@ export function BudgetProvider({children,initialSteps}:BudgetProviderProps){
       goToSpecificStep,
       setChoosedDomain,
       nextStepYear,
+      setActiveStep,
       years,
       choosedDomain,
       activeStep,

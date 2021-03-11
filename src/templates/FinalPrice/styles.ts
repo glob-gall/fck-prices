@@ -281,6 +281,7 @@ export const DomainAndYears = styled.div`
   height:8rem;
   font-size:22px;
   padding:1rem;
+  cursor:pointer;
 
   background:#C7EBFF60;
   border:2px solid #C7EBFF00;
@@ -289,4 +290,10 @@ export const DomainAndYears = styled.div`
     height:6rem;
     font-size:18px;
   `}
+  transition:0.5s;
+  &:hover{
+    background:#C7EBFF90;
+    border:2px solid #C7EBFF;
+    transform:translateY(-0.5rem);
+  }
 `

@@ -21,7 +21,7 @@ type ActiveOptionProps = OptionProps & {
 
 function TotalPrice(){
   const router = useRouter()
-  const {steps,choosedDomain,years} = useBudget()
+  const {steps,choosedDomain,years,setActiveStep} = useBudget()
   const [developmentPrice,setDevelopmentPrice] = useState(0)
   const [yearPrice,setYearPrice] = useState(0)
   const [activeOptions,setActiveOptions] = useState<ActiveOptionProps[]>([])
@@ -148,7 +148,10 @@ function TotalPrice(){
               <p>{choosedDomain}</p>
           </S.DomainAndYears>
           )}
-        <S.DomainAndYears>
+        <S.DomainAndYears onClick={()=>{
+          setActiveStep(2)
+          router.push('/')
+        }}>
           <p>{years} Ano{years>1 && 's'}</p>
         </S.DomainAndYears>
         {activeOptions.map((opt,index)=>(
