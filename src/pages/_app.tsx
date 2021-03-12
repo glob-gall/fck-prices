@@ -15,6 +15,7 @@ import mailing from '../public/static/svgs/mailing.svg'
 import icon from '../public/static/icons/myboy.ico'
 
 import { StepProps } from '../components/Step'
+import ProgressBar from 'nextjs-progressbar'
 
 
 const steps = [
@@ -134,6 +135,7 @@ function App({ Component, pageProps }: AppProps) {
       <BudgetProvider initialSteps={steps}>
         <Component {...pageProps} />
       </BudgetProvider>
+      <ProgressBar color="#ff9f1c" startPosition={0.3} stopDelayMs={200} height={6}/>
     </>
     
   )
