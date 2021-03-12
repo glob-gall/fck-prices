@@ -78,7 +78,7 @@ const steps = [
         description:'portfólio com seu contato',
         opt:'site-pessoal',
         price:320,
-        hostPrice: 156
+        hostPrice: 13
       },
       {
         img:mailing,
