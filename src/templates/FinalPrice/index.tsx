@@ -138,6 +138,7 @@ function TotalPrice(){
                     Email
                 </S.EmailButton>
             </S.ComfirmButtonWrapper>
+            
         </>
       }
       </S.ButtonWrapper>
