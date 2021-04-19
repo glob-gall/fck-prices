@@ -117,9 +117,9 @@ function TotalPrice(){
             <S.ComfirmButtonWrapper>
               
                 <S.WhatsappButton 
-                href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site, 
-                que tenho a intenção de manter por ${years} e pagar ${radio?'anualmente':'mensalmente'}.
-                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}
+                href={`https://api.whatsapp.com/send?phone=${linkWhatsapp}&text=Olá, gostaria de fazer um orçamento para um site,
+                que tenho a intenção de manter por ${years} ano${years>1?"s":""} e pagar ${radio?'anualmente':'mensalmente'}.%0a
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} ${choosedDomain && `e o domínio que escolhi é ${choosedDomain}`}`}
                 target="_blank"
                 >
                     <img src={whatsapp} 
@@ -130,8 +130,8 @@ function TotalPrice(){
               
                 <S.EmailButton 
                 href={`mailto:${linkEmail}?subject=Orçamento Fck Timing&body=Olá, gostaria de fazer um orçamento para um site, 
-                que tenho a intenção de manter por ${years} anos e pagar ${radio?'anualmente':'mensalmente'}.
-                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} e o domínio que escolhi é ${choosedDomain}`}
+                que tenho a intenção de manter por ${years} ano${years>1?"s":""} e pagar ${radio?'anualmente':'mensalmente'}.<br/>
+                Minhas escolhas são: ${activeOptions.map(opt=> opt.text).join()} ${choosedDomain && `e o domínio que escolhi é ${choosedDomain}`}`}
                 target="_blank"
                 >
                     <img src={email} alt="uma carta com um arroba no meio"/>
